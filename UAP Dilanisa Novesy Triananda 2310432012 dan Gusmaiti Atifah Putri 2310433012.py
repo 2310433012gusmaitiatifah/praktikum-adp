@@ -2,7 +2,7 @@ import os
 os.system('cls')
 import time
 from termcolor import cprint
-
+#Menggunakan time delay
 detik = int(5)
 
 for i in reversed(range(detik+1)):
@@ -11,17 +11,18 @@ for i in reversed(range(detik+1)):
     time.sleep(1)
 os.system('cls')
 
-print("Nama: Dilanisa Novesy Triananda/2310432012")
-print("Nama: Gusmaiti Atifah Putri/2310433012")      
+print("""Nama: Dilanisa Novesy Triananda/2310432012
+Nama: Gusmaiti Atifah Putri/2310433012\n""")      
 
 print("~~~~~~~~SELAMAT DATANG DI SEREIN KITCHENETTE~~~~~~~~")
-# Inisialisasi nomor meja
+
+#Inisialisasi nomor meja dengan array 2D
 nomor_meja = [
     [1, 2, 3, 4, 5],
     [6, 7, 8, 9, 10]
 ]
 
-# Fungsi untuk memilih nomor meja
+#Membuat fungsi untuk memilih nomor meja
 def pilih_nomor_meja():
     print("Pilih tipe meja:")
     print("Indoor")
@@ -42,8 +43,7 @@ def pilih_nomor_meja():
     print(f"Anda memilih nomor meja {meja_dipilih} - {pilihan_tipe}")
     return meja_dipilih
 
-
-# Menu makanan
+#Memasukkan menu makanan dengan array dan dictionary
 menu = [
     {"kode": 1, "nama": "Fish n Chips", "harga": 50000},
     {"kode": 2, "nama": "Cheese Sauce Steak", "harga": 55000},
@@ -56,9 +56,10 @@ menu = [
     {"kode": 9, "nama": "Caramelized Banana", "harga": 45000},
 ]
 
-# Pesanan
+#Proses Pesanan
 pesanan = []
 
+#Menampilkan menu dengan animasi
 def tampilkan_menu():
     for i in range (1):
         cprint("                       A. FOODS                              ", "white", "on_blue")
@@ -92,6 +93,7 @@ def tampilkan_menu():
         cprint("  9. Caramelized Banana       ", "white", "on_light_cyan", end="")
         cprint("          Rp. 45.000,-         ", "white", "on_light_cyan")
 
+#Membuat fungsi tambah pesanan
 def tambah_pesanan():
     kode = int(input("Masukkan kode makanan yang ingin dipesan: "))
     jumlah = int(input("Masukkan jumlah: "))
@@ -102,6 +104,7 @@ def tambah_pesanan():
             return
     print("Kode makanan tidak valid.")
 
+#Membuat fungsi simpan pesanan
 def simpan_pesanan():
     if not pesanan:
         print("Tidak ada pesanan untuk disimpan.")
@@ -111,6 +114,7 @@ def simpan_pesanan():
             file.write(f"{item['jumlah']} {item['nama']}\n")
     print("Pesanan telah disimpan ke pesanan.txt")
 
+#Membuat fungsi lihat pesanan
 def lihat_pesanan():
     if not pesanan:
         print("Tidak ada pesanan.")
@@ -119,6 +123,7 @@ def lihat_pesanan():
     for item in pesanan:
         print(f"{item['jumlah']} {item['nama']}")
 
+#Membuat fungsi menampilkan bill pesanan
 def tampilkan_bill():
     if not pesanan:
         print("Tidak ada pesanan.")
@@ -146,9 +151,10 @@ def tampilkan_bill():
                         TERIMA KASIH
           """)
 
-# Menjalankan fungsi pilih_nomor_meja
+#Agar fungsi nomor meja jalan
 meja_dipilih = pilih_nomor_meja()
 
+#Pilih menu menggunakan loop dan pengkondisian
 while True:
     print("\n1. Tampilkan Menu")
     print("2. Tambah Pesanan")
@@ -173,29 +179,4 @@ while True:
     else:
         print("Pilihan tidak valid.")
 
-# Menjalankan fungsi pilih_nomor_meja
-meja_dipilih = pilih_nomor_meja()
-
-while True:
-    print("\n1. Tampilkan Menu")
-    print("2. Tambah Pesanan")
-    print("3. Lihat Pesanan")
-    print("4. Simpan Pesanan")
-    print("5. Tampilkan Bill")
-    print("6. Keluar")
-    pilihan = input("Pilih menu: ")
-
-    if pilihan == "1":
-        tampilkan_menu()
-    elif pilihan == "2":
-        tambah_pesanan()
-    elif pilihan == "3":
-        lihat_pesanan()
-    elif pilihan == "4":
-        simpan_pesanan()
-    elif pilihan == "5":
-        tampilkan_bill()
-    elif pilihan == "6":
-        break
-    else:
-        print("Pilihan tidak valid.")
+#Selesai
